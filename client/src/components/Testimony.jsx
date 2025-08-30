@@ -4,7 +4,6 @@ const Testimony = () => {
   return (
     <section className="bg-white py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-12 p-8 bg-gray-50 rounded-lg shadow-lg">
-        {/* Testimonial Image */}
         <div className="flex-shrink-0 md:w-1/3">
           <img
             src="/image.png"
@@ -13,9 +12,7 @@ const Testimony = () => {
           />
         </div>
 
-        {/* Testimonial Content */}
         <div className="md:w-2/3 text-center md:text-left">
-          {/* Star Rating */}
           <div className="flex justify-center md:justify-start mb-4">
             {Array(5).fill(
               <svg className="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
@@ -24,18 +21,15 @@ const Testimony = () => {
             )}
           </div>
 
-          {/* Quote */}
           <p className="text-xl italic text-gray-800 mb-6">
             "QUILLJOT HAS TRANSFORMED THE WAY I CREATE CONTENT. IT'S INTUITIVE AND HAS SIGNIFICANTLY BOOSTED MY PRODUCTIVITY!"
           </p>
 
-          {/* Author and Company */}
           <div className="flex flex-col sm:flex-row items-center md:justify-start justify-center gap-4">
             <div>
               <p className="font-semibold text-gray-900">Jane Doe</p>
               <p className="text-sm text-gray-600">Content Creator, BlogCo</p>
             </div>
-            {/* You can replace this with an actual SVG for Webflow logo */}
             <div className="text-gray-500 font-bold text-lg md:ml-auto">
               Webflow
             </div>

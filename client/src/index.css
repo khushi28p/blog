@@ -125,21 +125,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  /* Creates horizontal lines with minimal opacity */
   background-image: 
     linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
-  background-size: 2rem 2rem; /* Sets the line spacing */
+  background-size: 2rem 2rem; 
   animation: slide-grid 40s linear infinite;
   z-index: 0;
-}
-
-@keyframes slide-grid {
-  from {
-    transform: translateY(0) translateX(0);
-  }
-  to {
-    transform: translateY(2rem) translateX(2rem);
-  }
 }
 
 @keyframes fadeInFloat {

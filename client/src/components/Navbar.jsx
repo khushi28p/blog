@@ -4,24 +4,21 @@ import { Button } from './ui/button';
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
-  // Function to handle the scroll event
   const handleScroll = () => {
     const offset = window.scrollY;
-    if (offset > 50) { // You can adjust this value
+    if (offset > 50) { 
       setScrolled(true);
     } else {
       setScrolled(false);
     }
   };
 
-  // Add the event listener when the component mounts
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-    // Remove the event listener when the component unmounts
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []); // The empty array ensures this effect runs only once
+  }, []); 
 
   return (
     <div

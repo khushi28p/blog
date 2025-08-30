@@ -6,7 +6,6 @@ const Footer = () => {
     <footer className="bg-white text-gray-900 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16">
-          {/* Section 1: QuillJot Description */}
           <div>
             <span className="font-bold text-lg">QuillJot</span>
             <p className="mt-4 text-sm text-gray-600 max-w-sm">
@@ -14,7 +13,6 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Section 2: Explore Links */}
           <div>
             <h3 className="font-semibold text-gray-900">Explore</h3>
             <ul className="mt-4 space-y-2 text-sm text-gray-600">
@@ -25,7 +23,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Section 3: Contact Info and Socials */}
           <div>
             <h3 className="font-semibold text-gray-900">Contact</h3>
             <div className="mt-4 text-sm text-gray-600 space-y-2">

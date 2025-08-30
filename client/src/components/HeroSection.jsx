@@ -4,10 +4,8 @@ import React from 'react';
 const HeroSection = () => {
   return (
     <section className="relative h-screen bg-blue-50/50 py-24 sm:py-32 overflow-hidden">
-      {/* Animated Horizontal Rules - z-index is set below the main content */}
       <div className="absolute inset-0 z-0 opacity-80 animated-bg-lines"></div>
 
-      {/* Animated Icons Container - z-index is above the background but below the main content */}
       <div className="absolute inset-0 z-10">
         <div className="absolute top-[10%] left-[10%] opacity-0 animate-fade-in-float"><Bold className="w-12 h-12 md:w-16 md:h-16 rotate-12" /></div>
         <div className="absolute top-[30%] right-[5%] opacity-0 animate-fade-in-float-delay1"><Italic className="w-12 h-12 md:w-16 md:h-16 -rotate-6" /></div>
@@ -18,19 +16,15 @@ const HeroSection = () => {
         <div className="absolute top-[40%] left-[25%] opacity-0 animate-fade-in-float-delay6"><Type className="w-12 h-12 md:w-16 md:h-16 rotate-30" /></div>
       </div>
 
-      {/* Main Content & CTA - z-index is on top */}
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Catchy Headline */}
         <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-gray-900 leading-tight">
           Write Your Story, <br className="hidden sm:inline" /> Share Your Voice.
         </h1>
 
-        {/* Subtitle */}
         <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
           From a simple idea to a published masterpiece. Our AI-powered editor and intuitive tools make blogging effortless and fun.
         </p>
 
-        {/* CTA Buttons */}
         <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
           <a
             href="#"
