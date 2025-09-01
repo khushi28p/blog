@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "./ui/button";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
 
   const handleScroll = () => {
     const offset = window.scrollY;
@@ -27,7 +29,7 @@ const Navbar = () => {
         ${scrolled ? "bg-navbar-background backdrop-blur-md" : "bg-navbar-background"}
       `}
     >
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate('/')}>
         <img src="/logo.png" alt="quilljot logo" width={20} />
         <span className="font-bold text-foreground">QUILLJOT</span>
       </div>
@@ -50,8 +52,8 @@ const Navbar = () => {
         >
           Resources
         </a>
-        <Button variant="outline">Login</Button>
-        <Button variant="secondary">Sign Up</Button>
+        <Button onClick={() => navigate('/login')} className="cursor-pointer">Login</Button>
+        <Button variant="secondary" onClick={() => navigate('/signup')} className="cursor-pointer" >Sign Up</Button>
       </div>
     </div>
   );

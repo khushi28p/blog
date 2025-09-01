@@ -1,14 +1,10 @@
 import { Bold, Italic, Underline, Strikethrough, List, Code, Type } from 'lucide-react';
 import React from 'react';
-import Navbar from './Navbar';
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen bg-background py-24 sm:py-32 overflow-hidden">
       <div className="absolute inset-0 z-0 opacity-80 animated-bg-lines"></div>
-
-      {/* Hero Glow Effect */}
-      <div className="hero-glow absolute inset-0 z-10 opacity-30"></div>
 
       <div className="absolute inset-0 z-20">
         <div className="absolute top-[10%] left-[10%] opacity-0 animate-fade-in-float"><Bold className="w-12 h-12 md:w-16 md:h-16 rotate-12 text-foreground" /></div>
@@ -21,6 +17,11 @@ const HeroSection = () => {
       </div>
 
       <div className="relative z-30 flex flex-col items-center justify-center h-full px-4 sm:px-6 lg:px-8 text-center max-w-7xl mx-auto">
+        <div className='inline-flex items-center justify-center gap-2 px-6 py-1.5 mb-8 border border-primary-40 bg-primary/10 rounded-full text-sm text-primary'>
+          <img src="/ai.png" alt="ai icon" className='w-5' />
+          <p>New: AI feature integrated</p>
+        </div>
+
         <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-foreground leading-tight">
           Write Your Story, <br className="hidden sm:inline" /> Share Your Voice.
         </h1>
