@@ -28,10 +28,10 @@ const FAQAccordion = () => {
       <Accordion type="single" collapsible className="w-full">
         {faqs.map((faq, index) => (
           <AccordionItem value={`item-${index + 1}`} key={index}>
-            <AccordionTrigger className="text-left font-semibold hover:bg-gray-50 transition-colors duration-200">
+            <AccordionTrigger className="text-left font-semibold hover:bg-secondary transition-colors duration-200">
               {faq.question}
             </AccordionTrigger>
-            <AccordionContent className="bg-gray-50 p-4 border-t border-gray-200">
+            <AccordionContent className="bg-muted p-4 border-t border-border">
               {faq.answer}
             </AccordionContent>
           </AccordionItem>
