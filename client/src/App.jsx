@@ -1,6 +1,8 @@
 import React from 'react'
 import {Routes, Route} from 'react-router-dom'
 import Home from './pages/Home'
+import BlogList from './components/BlogList'
+import Dashboard from './pages/Dashboard'
 import Blog from './pages/Blog'
 
 const App = () => {
@@ -8,7 +10,8 @@ const App = () => {
     <div>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/blog' element={<Blog />} />
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/blog/:id' element={<Blog />} />
       </Routes>
     </div>
   )
