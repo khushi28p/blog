@@ -6,11 +6,21 @@ import { useEffect } from 'react';
 import Navbar from '@/components/Navbar'; 
 import Moment from 'moment';
 import { comments_data } from '@/assets/comments_data';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Button } from '@/components/ui/button';
+import { FaXTwitter } from "react-icons/fa6";
+import { FaFacebook } from "react-icons/fa6";
+import Footer from '@/components/Footer';
+import Loader from '@/components/Loader';
 
 const Blog = () => {
   const {id} = useParams();
   const [data, setData] = useState(null);
   const [comments, setComments] = useState([]);
+
+  const [name, setName] = useState('');
+  const [content, setContent] = useState('');
 
   const fetchBlogData = async() => {
     const data = blog_data.find(item => item._id === id);
@@ -19,6 +29,10 @@ const Blog = () => {
 
   const fetchComments = async() => {
     setComments(comments_data);
+  }
+
+  const addComment = async(e) => {
+    e.preventDefault();
   }
 
   useEffect( () => {
@@ -39,11 +53,46 @@ const Blog = () => {
         <img src={data.image} alt="" className='rounded-3xl mb-5' />
         <div className='rich-text max-w-3xl mx-auto ' dangerouslySetInnerHTML={{__html: data.description}}></div>
         <div className='mt-14 mb-10 max-w-3xl mx-auto'>
-          <p>Comments ({comments.length})</p>
+          <p className='font-semibold mb-4'>Comments ({comments.length})</p>
+          <div className='flex flex-col gap-4'>
+            {comments.map((item, index) => (
+              <div key={index} className='relative bg-primary/4 border border-primary/5 max-w-xl p-4 rounded text-accent-foreground'>
+                <div className='flex items-center gap-2 mb-2'>
+                  <img src='/image.png' alt="" className='w-6' />
+                  <p className='font-medium'>{item.name}</p>
+                </div>
+                <p className='text-sm max-w-md ml-8'>{item.content}</p>
+                <div className='absolute right-4 bottom-3 flex items-center gap-2 text-xs'>{Moment(item.createdAt).fromNow()}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className='max-w-3xl mx-auto'>
+          <p className='font-semibold mb-4'>Add your comment</p>
+          <form onSubmit={addComment} className='flex flex-col items-start gap-4 max-w-lg'>
+            <Input onChange={() => setName(e.target.value)} type='text' placeholder='Name' required className='w-full p-2 border border-gray-300 rounded outline-none' />
+            <Textarea onChange={() => setContent(e.target.value)} placeholder='Add your comment' className='w-full p-2 border nprder-gray-300 rounded outline-none h-48' required />
+            <Button className='bg-primary text-white roudned p-2 px-8 hover:scale-102 transition-all cursor-pointer'>Submit</Button>
+          </form>
+        </div>
+
+        <div className='my-24 max-w-3xl mx-auto'>
+          <p className='font-semibold my-4'>Share this article on social media</p>
+            <div className='flex gap-4'>
+              <div className='flex items-center border p-2 rounded shadow-lg hover:shadow-xl transition-all hover:scale-110 '>
+                <FaXTwitter size={25} className='cursor-pointer text-primary hover:scale-110 transition-all' />
+              </div>
+              
+              <div className='flex items-center border p-2 rounded shadow-lg hover:shadow-xl transition-all hover:scale-110 '>
+                <FaFacebook size={25} className='cursor-pointer text-primary hover:scale-110 transition-all' />
+              </div>
+            </div>
         </div>
       </div>
+      <Footer />
     </div>
-  ) : <div>Loading...</div>
+  ) : <Loader />
 }
 
 export default Blog

@@ -1,10 +1,11 @@
 import BlogList from '@/components/BlogList'
 import React from 'react'
+import Navbar from '@/components/Navbar'
 
 const Dashboard = () => {
   return (
     <div>
-        hello from dashboard
+      <Navbar />
       <BlogList />
     </div>
   )

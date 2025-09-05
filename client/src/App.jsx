@@ -1,7 +1,6 @@
 import React from 'react'
 import {Routes, Route} from 'react-router-dom'
 import Home from './pages/Home'
-import BlogList from './components/BlogList'
 import Dashboard from './pages/Dashboard'
 import Blog from './pages/Blog'
 
@@ -12,6 +11,9 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/blog/:id' element={<Blog />} />
+        <Route path='/admin' element={<Layout />}>
+        <Route index element />
+        </Route>
       </Routes>
     </div>
   )
