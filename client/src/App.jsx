@@ -3,6 +3,13 @@ import {Routes, Route} from 'react-router-dom'
 import Home from './pages/Home'
 import Dashboard from './pages/Dashboard'
 import Blog from './pages/Blog'
+import Layout from './pages/admin/Layout'
+import AdminDashboard from './pages/admin/AdminDashboard'
+import AddBlog from './pages/admin/AddBlog'
+import ListBlog from './pages/admin/ListBlog'
+import Comments from './pages/admin/Comments'
+import Login from './components/admin/Login'
+import 'quill/dist/quill.snow.css'
 
 const App = () => {
   return (
@@ -11,8 +18,11 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/blog/:id' element={<Blog />} />
-        <Route path='/admin' element={<Layout />}>
-        <Route index element />
+        <Route path='/admin' element={true ? <Layout /> : <Login />}>
+          <Route index element={<AdminDashboard />} />
+          <Route path='addBlog' element={<AddBlog />} />
+          <Route path='listBlog' element={<ListBlog />} />
+          <Route path='comments' element={<Comments />} />
         </Route>
       </Routes>
     </div>
