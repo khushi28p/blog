@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "./ui/button";
-import { useNavigate } from "react-router-dom";
+import { useAppContext } from "@/context/AppContext";
+import Header from "./Header";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
-  const navigate = useNavigate();
+  const {navigate, token} = useAppContext();
 
   const handleScroll = () => {
     const offset = window.scrollY;
@@ -33,28 +34,9 @@ const Navbar = () => {
         <img src="/logo.png" alt="quilljot logo" width={20} />
         <span className="font-bold text-foreground">QUILLJOT</span>
       </div>
-      <div className="flex items-center gap-6">
-        <a
-          href="#"
-          className="hover:underline text-muted-foreground hover:text-foreground"
-        >
-          Features
-        </a>
-        <a
-          href="#"
-          className="hover:underline text-muted-foreground hover:text-foreground"
-        >
-          Pricing
-        </a>
-        <a
-          href="#"
-          className="hover:underline text-muted-foreground hover:text-foreground"
-        >
-          Resources
-        </a>
-        <Button onClick={() => navigate('/login')} className="cursor-pointer">Login</Button>
-        <Button variant="secondary" onClick={() => navigate('/signup')} className="cursor-pointer" >Sign Up</Button>
-      </div>
+        <Header />
+
+      <Button onClick={() => navigate('/admin')} className="cursor-pointer">Login</Button>
     </div>
   );
 };

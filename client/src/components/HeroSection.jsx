@@ -38,10 +38,10 @@ const HeroSection = () => {
             Start Writing for Free
           </a>
           <a
-            href="#"
+            href="/dashboard"
             className="w-full sm:w-auto px-8 py-3 border border-border text-base font-medium rounded-md text-foreground bg-background hover:bg-secondary transition-colors duration-200"
           >
-            Learn More
+            Explore
           </a>
         </div>
       </div>

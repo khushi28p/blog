@@ -7,6 +7,7 @@ import { MdOutlineDrafts } from "react-icons/md";
 import { useEffect } from "react";
 import { RiArticleLine } from "react-icons/ri";
 import BlogTableItem from "@/components/admin/BlogTableItem";
+import { useAppContext } from "@/context/AppContext";
 
 
 const AdminDashboard = () => {
@@ -16,9 +17,16 @@ const AdminDashboard = () => {
     drafts: 0,
     recentBlogs: [],
   });
+  
+  const {axios} = useAppContext();
 
   const fetchDashboardData = async () => {
-    setDashboardData(dashboard_data);
+    try{
+      const {data} = await axios.get('/api/admin/dashboard');
+      data.success ? setDashboardData(data.dashboardData) : toast.error(data.message);
+    } catch(error){
+      toast.error(error.message)
+    }
   };
 
   useEffect(() => {

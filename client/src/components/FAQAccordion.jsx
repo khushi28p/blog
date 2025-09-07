@@ -23,7 +23,7 @@ const faqs = [
 
 const FAQAccordion = () => {
   return (
-    <div className="w-full max-w-2xl mx-auto py-12 px-4">
+    <div id='faqs' className="w-full max-w-2xl mx-auto py-12 px-4">
       <h2 className="text-3xl font-bold text-center mb-8">FAQs</h2>
       <Accordion type="single" collapsible className="w-full">
         {faqs.map((faq, index) => (
